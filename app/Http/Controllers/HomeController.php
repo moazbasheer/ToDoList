@@ -62,10 +62,10 @@ class HomeController extends Controller
             'email' => 'required|email',
             'password' => 'required'
         ]);
-        $user = User::where('email', $data["email"])->first();
+        $user = User::where('email', $data['email'])->first();
         if($user) {
             return Redirect()->route('register')->withErrors([
-                'email' => 'this mail is used before'
+                'email' => 'this email is already used'
             ]);
         }
         
